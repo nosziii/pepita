@@ -18,21 +18,20 @@ describe('Menu.vue', () => {
 					}
 				}
 			}
-		});
-	});
+		})
+	})
 	
 	it('renders the correct number of menu items', () => {
-		const items = wrapper.findAll('.nav-item');
-		expect(items).toHaveLength(menuItems.length);
+		const items = wrapper.findAll('.nav-item')
+		expect(items).toHaveLength(menuItems.length)
 	});
 	
 	it('renders menu items with correct text and link', () => {
 		menuItems.forEach((item, index) => {
-			const menuItem = wrapper.findAll('.nav-link').at(index);
-			expect(menuItem.text()).toBe(item.name);
-			// Az 'to' attribútum ellenőrzése helyett, ellenőrizd a 'href' attribútumot, ha a NuxtLink használva van
-			expect(menuItem.attributes('href')).toBe(item.path);
-		});
-	});
-});
+			const menuItem = wrapper.findAll('.nav-link').at(index)
+			expect(menuItem.text()).toBe(item.name)
+			expect(menuItem.attributes('to')).toBe(item.path)
+		})
+	})
+})
 
